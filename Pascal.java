@@ -15,8 +15,10 @@ public class Pascal{
 	    for(int j=0;j<ret.size();j++) {
 	    	 System.out.println(ret.get(j));
 	     }
+	  
 	}
 	public static List<Integer> getRow(int rowIndex) {
+
         //优化算法只有o(k)
 //         List<Integer> list=new ArrayList<Integer>();//每次都new一个新的值
 //        if(rowIndex==0)
@@ -39,6 +41,8 @@ public class Pascal{
 //        temp.add(1);
 //        list.add(1);
 //        return list;
+//		解题思路以及注意事项
+//		使用两个list来完成，last用来存储上一层的数据
 		   List<Integer> last = new ArrayList<Integer>();
 	        last.add(1);
 	        for (int i = 1; i < rowIndex+1; i++) {
@@ -55,4 +59,21 @@ public class Pascal{
         
         
     }
+//	解题思路以及注意事项
+//	不断地在第一个数上面添加1，然后把
+	public static List<Integer> getRow2(int rowIndex) {
+		List<Integer> list = new ArrayList<Integer>();
+	    if (rowIndex < 0)
+	        return list;
+
+	    for (int i = 0; i < rowIndex + 1; i++) {
+	        list.add(0, 1);//在list的0的位置添加1
+	        for (int j = 1; j < list.size() - 1; j++) {
+	            list.set(j, list.get(j) + list.get(j + 1));
+	        }
+	    }
+	    return list;
+	}
+
+	
 }
