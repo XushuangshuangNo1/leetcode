@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-public class test {
+public class Pascal{
 	public static void main(String[] args)
 	{
 //		int[] number = null;
